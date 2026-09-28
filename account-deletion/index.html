@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="referrer"
+    content="no-referrer"
+  >
+
+  <meta
+    name="robots"
+    content="index,follow"
+  >
+
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://pknerqimxrdieeaocixs.supabase.co; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none';"
+  >
+
+  <title>Delete Atlas Account</title>
+
+  <link
+    rel="stylesheet"
+    href="./styles.css"
+  >
+
+  <script
+    src="./app.js"
+    defer
+  ></script>
+</head>
+
+<body>
+  <main>
+    <div class="brand">Atlas</div>
+
+    <section
+      class="card"
+      aria-labelledby="page-title"
+    >
+      <h1 id="page-title">
+        Delete your Atlas account
+      </h1>
+
+      <p>
+        This page allows an existing Atlas account owner to permanently
+        delete their Atlas cloud account without reinstalling the Atlas app.
+      </p>
+
+      <div class="danger">
+        <strong>This action cannot be undone.</strong>
+
+        <p>
+          Successful deletion removes the Atlas authentication account and
+          Atlas cloud synchronization records owned by that account.
+        </p>
+
+        <p>
+          Atlas data already stored locally on a phone, tablet, or computer
+          is not remotely erased by this webpage. Remove Atlas application
+          data from those devices separately if you also want the local copy
+          removed.
+        </p>
+      </div>
+
+      <section
+        class="step"
+        aria-labelledby="step-one-title"
+      >
+        <h2 id="step-one-title">
+          1. Verify your Atlas email
+        </h2>
+
+        <p>
+          Enter the email address associated with your existing Atlas
+          account. This page cannot create a new Atlas account.
+        </p>
+
+        <label for="email">
+          Atlas account email
+        </label>
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          inputmode="email"
+          autocomplete="email"
+          maxlength="320"
+          required
+        >
+
+        <div class="actions">
+          <button
+            id="request-code"
+            class="primary"
+            type="button"
+          >
+            Send verification code
+          </button>
+        </div>
+      </section>
+
+      <section
+        id="verification-step"
+        class="step"
+        aria-labelledby="step-two-title"
+        hidden
+      >
+        <h2 id="step-two-title">
+          2. Enter the verification code
+        </h2>
+
+        <p>
+          Enter the six-digit code sent to the Atlas account email.
+        </p>
+
+        <label for="otp">
+          Verification code
+        </label>
+
+        <input
+          id="otp"
+          name="otp"
+          type="text"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          minlength="6"
+          maxlength="6"
+          pattern="[0-9]{6}"
+        >
+
+        <div class="actions">
+          <button
+            id="verify-code"
+            class="primary"
+            type="button"
+          >
+            Verify code
+          </button>
+        </div>
+      </section>
+
+      <section
+        id="delete-step"
+        class="step"
+        aria-labelledby="step-three-title"
+        hidden
+      >
+        <h2 id="step-three-title">
+          3. Confirm permanent deletion
+        </h2>
+
+        <p>
+          Type <code>DELETE</code> exactly and then select
+          <strong>Delete Atlas account</strong>.
+        </p>
+
+        <label for="confirmation">
+          Confirmation
+        </label>
+
+        <input
+          id="confirmation"
+          name="confirmation"
+          type="text"
+          autocomplete="off"
+          maxlength="6"
+          spellcheck="false"
+        >
+
+        <div class="actions">
+          <button
+            id="delete-account"
+            class="destructive"
+            type="button"
+            disabled
+          >
+            Delete Atlas account
+          </button>
+
+          <button
+            id="start-over"
+            class="secondary"
+            type="button"
+          >
+            Start over
+          </button>
+        </div>
+      </section>
+
+      <div
+        id="status"
+        class="status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></div>
+
+      <p class="small">
+        Atlas requires fresh email verification before permanent cloud
+        account deletion. The temporary authenticated deletion session is
+        kept only in this webpage's memory and is not intentionally saved
+        to browser storage.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
